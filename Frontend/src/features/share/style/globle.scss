@@ -1,0 +1,21 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html, body,
+#root {
+    font-family: 'Poppins', sans-serif;
+    background-color: #434242;
+}
+a {
+    text-decoration: none;
+    color: #de1010;
+}
+.entire-button {
+    cursor: pointer;
+    :active {
+        transform: scale(2);
+    }
+    
+}
