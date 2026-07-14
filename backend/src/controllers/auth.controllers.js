@@ -45,10 +45,7 @@ async function registercontrollers(req, res) {
 
     res.status(201).json({
         message: 'user have registerd',
-        username: user.username,
-        boi: user.bio,
-        profileImage: user.profileImage,
-        email: user.email
+       user
 
     })
 
@@ -71,11 +68,7 @@ async function logingcontrollers(req, res) {
 
     if (!user) {
         return res.status(404).json({
-            message: "user is not found",
-
-
-
-
+            message: "user is not found"
         })
     }
 
@@ -100,10 +93,7 @@ async function logingcontrollers(req, res) {
 
     res.status(201).json({
         message: "login successful",
-        username: user.username,
-        boi: user.bio,
-        profileImage: user.profileImage,
-        email: user.email
+        user
     })
 
 

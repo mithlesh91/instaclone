@@ -18,6 +18,6 @@ app.use(cors({
 
 // using api and prefix
 app.use('/api/auth', routers)
-app.use('/api/auth', postrouter)
-app.use('/api/auth',userrouters)
+app.use('/api', postrouter)
+app.use('/api',userrouters)
 module.exports = app

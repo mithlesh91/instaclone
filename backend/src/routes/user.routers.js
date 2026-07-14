@@ -9,6 +9,7 @@ userrouters.post('/follow/:username', identify, usercontrollers.userfollowcontor
 userrouters.post('/unfollow/:username', identify, usercontrollers.userunfollowcontroller)
 
 userrouters.post('/likes/:postid',identify,usercontrollers.likepostcontrollers)
+userrouters.post('/unlikes/:postid',identify,usercontrollers.unLikePostController)
 
 
 

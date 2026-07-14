@@ -1,6 +1,8 @@
 const postmodel = require('../models/post.models')
+const likemodel = require("../models/likes.modes")
 const Imagekit = require('@imagekit/nodejs')
 const { toFile } = require('@imagekit/nodejs')
+const { Folders } = require('@imagekit/nodejs/resources/index.js')
 const jwt = require('jsonwebtoken')
 
 
@@ -14,7 +16,8 @@ async function createpostcontrollers(req, res) {
 
     const file = await imagekit.files.upload({
         flie: await toFile(Buffer.from(req.file.buffer), 'file'),
-        fileName: "test"
+        fileName: "test",
+         folder: "/posts"
     })
 
     const post = await postmodel.create({
@@ -34,9 +37,7 @@ async function getpostcontrollers(req, res) {
 
     const userid = req.user.id
 
-    const posts = await postmodel.findOne({
-        user: userid
-    })
+    const posts = await postmodel.find()
     res.status(200).json({
         message: "post has fatched successfully",
         posts
@@ -75,8 +76,34 @@ async function getdetails(req, res) {
 
 }
 
+async function getFeedController(req, res) {
+
+    const user = req.user
+
+    const posts = await Promise.all((await postmodel.find({}).populate("user").lean())
+        .map(async (post) => {
+            const isLiked = await likemodel.findOne({
+                user: user.username,
+                post: post._id
+            })
+
+            post.isLiked = Boolean(isLiked)
+
+            return post
+        }))
+
+
+
+    res.status(200).json({
+        message: "posts fetched successfully.",
+        posts
+    })
+}
+
+
 module.exports = {
     createpostcontrollers,
     getpostcontrollers,
-    getdetails
+    getdetails,
+    getFeedController
 }
