@@ -1,0 +1,108 @@
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+}
+main .form-contener {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 100%;
+  max-width: 380px;
+  background: white;
+  padding: 40px 32px;
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  animation: slideIn 0.5s ease-out;
+}
+main .form-contener h1 {
+  font-size: 28px;
+  font-weight: 700;
+  text-align: center;
+  color: #262626;
+  margin: 0;
+  margin-bottom: 8px;
+  letter-spacing: -0.5px;
+}
+main .form-contener p {
+  text-align: center;
+  color: #737373;
+  font-size: 14px;
+  margin: 0;
+}
+main .form-contener p a {
+  color: #0095f6;
+  text-decoration: none;
+  font-weight: 600;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+main .form-contener p a:hover {
+  color: #0074d9;
+}
+main form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+main form input {
+  padding: 12px 16px;
+  border: 1px solid #dbdbdb;
+  border-radius: 6px;
+  font-size: 14px;
+  background-color: #fafafa;
+  color: #262626;
+  transition: all 0.2s;
+  font-family: inherit;
+}
+main form input::-moz-placeholder {
+  color: #a8a8a8;
+}
+main form input::placeholder {
+  color: #a8a8a8;
+}
+main form input:focus {
+  outline: none;
+  background-color: #fff;
+  border-color: #0095f6;
+  box-shadow: 0 0 0 2px rgba(0, 149, 246, 0.1);
+}
+main form input:hover:not(:focus) {
+  border-color: #b3b3b3;
+}
+main .entire-button {
+  padding: 10px 16px !important;
+  border: none !important;
+  border-radius: 6px !important;
+  background-color: #0095f6 !important;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+  color: #fff !important;
+  font-weight: 600 !important;
+  cursor: pointer !important;
+  font-size: 14px !important;
+  transition: all 0.3s !important;
+  margin-top: 4px !important;
+  font-family: inherit !important;
+}
+main .entire-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(102, 126, 234, 0.4);
+}
+main .entire-button:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3);
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}/*# sourceMappingURL=style.css.map */
