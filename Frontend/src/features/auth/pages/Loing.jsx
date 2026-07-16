@@ -2,17 +2,35 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import '../share/style.scss'
 import { useState, useEffect } from 'react'
+import { useAuth } from '../Hooks/use.Auth'
+import { useNavigate } from 'react-router-dom'
 
 const Loing = () => {
   const [username, setusername] = useState('')
   const [password, setpassword] = useState("")
+  const { user, loading, loginhandle } = useAuth()
+  const navigate = useNavigate()
 
-   function formhandle(e){
-     e.preventDefault()
-     console.log("username",username)
-     console.log("password",password)
+  async function formhandle(e) {
+    e.preventDefault()
+
+    await loginhandle(username, password)
+    navigate("/")
+
+    setusername("")
+    setpassword("")
+
+    console.log("username", username)
+    console.log("password", password)
   }
 
+  if (loading) {
+    return (
+    <main>
+      loading ...
+    </main>
+    )
+  }
 
 
   return (
