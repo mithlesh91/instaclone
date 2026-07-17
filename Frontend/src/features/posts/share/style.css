@@ -1,0 +1,87 @@
+main.post {
+  height: 100%;
+  width: 100%;
+  padding: 2rem 1rem;
+  background: linear-gradient(135deg, #f8fafc 0%, #eef2ff 100%);
+}
+main.post .feed-container {
+  max-width: 520px;
+  width: 250px;
+  margin: 0 auto;
+  background: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
+  overflow: hidden;
+}
+main.post .feed-container .profile {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 1rem 1.2rem;
+}
+main.post .feed-container .profile img {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 2px solid #e2e8f0;
+  -o-object-fit: cover;
+     object-fit: cover;
+  background: linear-gradient(135deg, #dbeafe, #f5f3ff);
+}
+main.post .feed-container .profile h3 {
+  margin: 0;
+  font-size: 1rem;
+  color: #1f2937;
+}
+main.post .feed-container .post-image {
+  min-height: 280px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #f8fafc, #e2e8f0);
+  border-top: 1px solid #f1f5f9;
+  border-bottom: 1px solid #f1f5f9;
+}
+main.post .feed-container .post-image img {
+  width: 100%;
+  height: 100%;
+  min-height: 300px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  background: #cbd5e1;
+}
+main.post .feed-container .icon {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.2rem 0.5rem;
+}
+main.post .feed-container .icon .left-icone,
+main.post .feed-container .icon .right-icone {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+}
+main.post .feed-container .icon svg {
+  width: 24px;
+  height: 24px;
+  color: #475569;
+  cursor: pointer;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+main.post .feed-container .icon svg:hover {
+  color: #2563eb;
+  transform: scale(1.08);
+}
+main.post .feed-container .caption {
+  padding: 0 1.2rem 1.2rem;
+}
+main.post .feed-container .caption p {
+  margin: 0;
+  color: #334155;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+main.post .feed-container .caption strong {
+  color: #0f172a;
+}/*# sourceMappingURL=style.css.map */

@@ -1,0 +1,23 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body,
+#root {
+  font-family: "Poppins", sans-serif;
+  background-color: #b7b7bc;
+}
+
+a {
+  text-decoration: none;
+  color: #de1010;
+}
+
+.entire-button {
+  cursor: pointer;
+}
+.entire-button :active {
+  transform: scale(2);
+}/*# sourceMappingURL=globle.css.map */

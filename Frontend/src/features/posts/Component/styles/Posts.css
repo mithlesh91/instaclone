@@ -1,0 +1,104 @@
+.posts-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1rem;
+  background: linear-gradient(135deg, #f8fafc 0%, #eef2ff 100%);
+  font-family: "Inter", "Segoe UI", sans-serif;
+}
+.posts-page .posts-card {
+  width: min(100%, 480px);
+  padding: 2rem;
+  border-radius: 24px;
+  background: #ffffff;
+  box-shadow: 0 18px 45px rgba(15, 23, 42, 0.08);
+  border: 1px solid #e2e8f0;
+}
+.posts-page h1 {
+  margin: 0 0 1.25rem;
+  font-size: 1.75rem;
+  color: #0f172a;
+}
+.posts-page form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.posts-page .postImage,
+.posts-page .caption,
+.posts-page .users {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.posts-page label {
+  font-weight: 600;
+  color: #334155;
+}
+.posts-page .upload-label {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.85rem 1rem;
+  border: 1px dashed #94a3b8;
+  border-radius: 14px;
+  cursor: pointer;
+  color: #2563eb;
+  background: #f8fafc;
+  transition: all 0.2s ease;
+}
+.posts-page .upload-label:hover {
+  border-color: #2563eb;
+  background: #eff6ff;
+}
+.posts-page input[type=file] {
+  display: none;
+}
+.posts-page textarea,
+.posts-page input[type=text] {
+  min-height: 48px;
+  padding: 0.9rem 1rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 14px;
+  background: #f8fafc;
+  color: #0f172a;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.posts-page textarea:focus,
+.posts-page input[type=text]:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+}
+.posts-page textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+.posts-page button {
+  border: none;
+  padding: 0.9rem 1rem;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #2563eb 0%, #4f46e5 100%);
+  color: #ffffff;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.posts-page button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 20px rgba(37, 99, 235, 0.2);
+}
+
+@media (max-width: 576px) {
+  .posts-page {
+    padding: 1rem;
+  }
+  .posts-page .posts-card {
+    padding: 1.25rem;
+    border-radius: 18px;
+  }
+  .posts-page h1 {
+    font-size: 1.4rem;
+  }
+}/*# sourceMappingURL=Posts.css.map */

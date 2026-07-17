@@ -1,6 +1,8 @@
 import { createBrowserRouter } from 'react-router-dom'
 import Loing from './features/auth/pages/Loing'
 import Register from './features/auth/pages/Register'
+import Feed from './features/posts/Page/Feed'
+import Posts from './features/posts/Component/Posts'
 
 export const router = createBrowserRouter([
     {
@@ -13,7 +15,11 @@ export const router = createBrowserRouter([
     },
     {
         path: '/',
-        element:<h1>Home</h1>
+        element:<Feed />
+    },
+    {
+        path:"/post",
+        element:<Posts/>
     }
 
 ])
