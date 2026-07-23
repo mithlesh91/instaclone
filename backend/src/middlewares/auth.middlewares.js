@@ -4,7 +4,7 @@ async function identifyuser(req, res, next) {
 
     if (!token) {
         return res.status(401).json({
-            message: "token is not provided ,unauthorized"
+            message: "please login "
         })
     }
 
@@ -15,7 +15,7 @@ async function identifyuser(req, res, next) {
 
     } catch (err) {
         return res.status(401).json({
-            message: "user is not authorized"
+            message: "please login again something error "
         })
     }
    req.user = decoded

@@ -4,6 +4,7 @@
   align-items: center;
   padding-inline: 0.5rem;
   padding-block: 1rem;
+  gap: 1rem;
 }
 .Navs button {
   padding: 0.5rem;

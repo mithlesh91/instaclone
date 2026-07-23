@@ -1,17 +1,26 @@
 import React from 'react'
 import { useState,useRef } from 'react'
 import './styles/Posts.scss'
+import { postuse } from '../Hooks/post.use'
+import { useNavigate } from 'react-router-dom'
 
 const Posts = () => {
     const [caption, setcaption] = useState("")
-    const [user, setuser] = useState("")
+    // const [user, setuser] = useState("")
     const PostImageValue = useRef("")
+    const navigate = useNavigate()
+    const {posthandle,loading,} =postuse()
 
-    function formhandle(e){
+    async function formhandle(e){
        e.preventDefault()
-       console.log(user)
-       console.log(PostImageValue)
+       const file = PostImageValue.current.files[0]
+      await posthandle(file,caption)
+      navigate("/")
     }
+
+if(loading){
+    return <main><h1>post is creating</h1></main>
+}
 
     return (
         <main className="posts-page">
@@ -22,12 +31,11 @@ const Posts = () => {
                         <label className="upload-label" htmlFor="image">Select Image</label>
                         <input 
                         ref={PostImageValue}
-                        onSubmit={()=>{console.log(PostImageValue.current.files[0])}}
                         type="file" id='image' name='postImage' 
                         placeholder='selectImage' 
                         />
                     </div>
-                    <div className="users">
+                    {/* <div className="users">
                         <label htmlFor="users">Username</label>
                         <input 
                         value={user}
@@ -35,7 +43,7 @@ const Posts = () => {
                         type="text" id='users' 
                         placeholder='Enter username' 
                         />
-                    </div>
+                    </div> */}
                     <div className="caption">
                         <label htmlFor="caption">Caption</label>
                         <textarea 

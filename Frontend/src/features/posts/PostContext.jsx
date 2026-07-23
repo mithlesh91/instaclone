@@ -4,8 +4,8 @@ export const PostContex = createContext()
 
 export const PostContexProvider = ({ children }) => {
     const [loading, setloading] = useState(false)
-    const [feed, setfeed] = useState("")
-    const [post, setpost] = useState("")
+    const [feed, setfeed] = useState(null)
+    const [post, setpost] = useState(null)
 
     return (
         <PostContex.Provider value={{ loading, setloading, feed, setfeed, post, setpost }}>

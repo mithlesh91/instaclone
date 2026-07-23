@@ -9,5 +9,6 @@ routers.post('/register',controllers.registercontrollers)
 routers.post('/login',controllers.logingcontrollers )
 
 routers.get('/get-me',identfiy,controllers.get_me_controllers)
+routers.get("/logout",identfiy,controllers.logout)
 
 module.exports = routers;

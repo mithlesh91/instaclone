@@ -112,8 +112,18 @@ async function get_me_controllers(req, res) {
     })
 }
 
+async function logout(req,res) {
+    res.clearCookie("login_jwtscwertcode")
+
+    res.status(200).json({
+        message:"successfully logout"
+    })
+    
+}
+
 module.exports = {
     registercontrollers,
     logingcontrollers,
-    get_me_controllers
+    get_me_controllers,
+    logout
 }
