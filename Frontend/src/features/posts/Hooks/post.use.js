@@ -1,6 +1,6 @@
 import { PostContex } from "../PostContext";
 import { useContext, useEffect } from "react";
-import { feedcontroller, Createpost,likepost,unlikepost ,followUser,unfollowUser } from "../service/post.api";
+import { feedcontroller, Createpost,likepost,unlikepost ,followUser,unfollowUser,logout } from "../service/post.api";
 
 
 export function postuse() {
@@ -75,8 +75,13 @@ export function postuse() {
         }
     }
 
+    async function logouthandle() {
+        const logouts = await logout()
+        await feedhandle()
+    }
+
     // useEffect(() => {
     //     feedhandle()
     // },[])
-    return { loading, feed, feedhandle, posthandle,likehandle,unlikehandle,followhandle,unfollowhandle }
+    return { loading, feed, feedhandle,logouthandle, posthandle,likehandle,unlikehandle,followhandle,unfollowhandle }
 }

@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 import '../share/style.scss'
 import Post from '../Component/Post'
 import Nav from "../Page/Nav"
+import Logout from "../Component/Logout"
 import { postuse } from '../Hooks/post.use'
 const Feed = () => {
     const { loading, feed, feedhandle, likehandle, unlikehandle,followhandle,unfollowhandle } = postuse()
@@ -14,6 +15,7 @@ const Feed = () => {
     console.log(feed)
     return (
         <main className='post'>
+            <Logout/>
             <Nav />
 
             {

@@ -6,6 +6,7 @@ main.post {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  gap: 4px;
 }
 main.post .feed-container {
   max-width: 520px;
