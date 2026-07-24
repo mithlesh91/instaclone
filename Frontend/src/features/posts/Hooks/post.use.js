@@ -1,6 +1,6 @@
 import { PostContex } from "../PostContext";
 import { useContext, useEffect } from "react";
-import { feedcontroller, Createpost,likepost,unlikepost } from "../service/post.api";
+import { feedcontroller, Createpost,likepost,unlikepost ,followUser,unfollowUser } from "../service/post.api";
 
 
 export function postuse() {
@@ -35,32 +35,48 @@ export function postuse() {
     }
 
     async function likehandle (postid){
-        setloading(true)
+        // setloading(true)
         try{
         const data = await likepost(postid)
         await feedhandle()
         } 
         catch (err){
             console.error(err)
-        }finally{
-            setloading(false)
-        }       
+        }  
     }
 
     async function unlikehandle (postid){
-        setloading(true)
         try{
         const data = await unlikepost(postid)
         await feedhandle()
         } 
         catch (err){
             console.error(err)
-        }finally{
-            setloading(false)
-        }       
+        }     
     }
+
+    async function followhandle() {
+        try{
+            const follow = await followUser()
+            await feedhandle()
+        }
+        catch(err){
+            console.error(err)
+        }
+    }
+
+    async function unfollowhandle() {
+        try{
+            const follow = await unfollowUser()
+            await feedhandle()
+        }
+        catch(err){
+            console.error(err)
+        }
+    }
+
     // useEffect(() => {
     //     feedhandle()
     // },[])
-    return { loading, feed, feedhandle, posthandle,likehandle,unlikehandle }
+    return { loading, feed, feedhandle, posthandle,likehandle,unlikehandle,followhandle,unfollowhandle }
 }

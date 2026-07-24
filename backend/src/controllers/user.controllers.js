@@ -1,6 +1,7 @@
 const usermodel = require('../models/user.models')
 const postmodel = require('../models/post.models')
 const likemodel = require('../models/likes.modes')
+const followmodel = require('../models/follow.model')
 
 async function userfollowcontorllers(req, res) {
 
@@ -13,7 +14,7 @@ async function userfollowcontorllers(req, res) {
         })
     }
 
-    const isalreadyfollow = await usermodel.findOne({
+    const isalreadyfollow = await followmodel.findOne({
         follower: followerusername,
         followee: followeeusername
     })
@@ -24,7 +25,7 @@ async function userfollowcontorllers(req, res) {
         })
     }
 
-    const followrecod = await usermodel.create({
+    const followrecod = await followmodel.create({
         follower: followerusername,
         followee: followeeusername
     })
@@ -42,7 +43,7 @@ async function userunfollowcontroller(req, res) {
     const followerusername = req.user.username
     const followeeusername = req.params.username
 
-    const isuserisfollowing = await usermodel.findOne({
+    const isuserisfollowing = await followmodel.findOne({
         follower: followerusername,
         followee: followeeusername
     })
@@ -53,7 +54,7 @@ async function userunfollowcontroller(req, res) {
         })
     }
 
-    await usermodel.findByIdAndDelete(isuserisfollowing._id)
+    await followmodel.findByIdAndDelete(isuserisfollowing._id)
     res.status(200).json({
         message: `you have unfolllow ${followeeusername}`
     })

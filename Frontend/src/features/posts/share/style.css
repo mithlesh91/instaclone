@@ -19,8 +19,15 @@ main.post .feed-container {
 main.post .feed-container .profile {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   gap: 0.8rem;
   padding: 1rem 1.2rem;
+}
+main.post .feed-container .profile .profile-info {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  min-width: 0;
 }
 main.post .feed-container .profile img {
   width: 48px;
@@ -35,6 +42,30 @@ main.post .feed-container .profile h3 {
   margin: 0;
   font-size: 1rem;
   color: #1f2937;
+}
+main.post .feed-container .profile .follow-btn {
+  border: 1px solid #2563eb;
+  background: #2563eb;
+  color: #ffffff;
+  padding: 0.45rem 0.8rem;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+main.post .feed-container .profile .follow-btn:hover {
+  background: #1d4ed8;
+  transform: translateY(-1px);
+}
+main.post .feed-container .profile .follow-btn.following {
+  background: #f8fafc;
+  color: #0f172a;
+  border-color: #cbd5e1;
+}
+main.post .feed-container .profile .follow-btn:disabled {
+  opacity: 0.7;
+  cursor: wait;
 }
 main.post .feed-container .post-image {
   min-height: 280px;
