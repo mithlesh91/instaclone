@@ -1,6 +1,6 @@
 import { PostContex } from "../PostContext";
 import { useContext, useEffect } from "react";
-import { feedcontroller, Createpost } from "../service/post.api";
+import { feedcontroller, Createpost,likepost,unlikepost } from "../service/post.api";
 
 
 export function postuse() {
@@ -11,7 +11,7 @@ export function postuse() {
         setloading(true)
         try {
             const data = await feedcontroller()
-            console.log("api data", data)
+            console.log("console all feed data", data)
             setfeed(data.posts)
         }
         catch (err) {
@@ -33,8 +33,34 @@ export function postuse() {
             setloading(false)
         }
     }
-    useEffect(() => {
-        feedhandle()
-    },[])
-    return { loading, feed, feedhandle, posthandle }
+
+    async function likehandle (postid){
+        setloading(true)
+        try{
+        const data = await likepost(postid)
+        await feedhandle()
+        } 
+        catch (err){
+            console.error(err)
+        }finally{
+            setloading(false)
+        }       
+    }
+
+    async function unlikehandle (postid){
+        setloading(true)
+        try{
+        const data = await unlikepost(postid)
+        await feedhandle()
+        } 
+        catch (err){
+            console.error(err)
+        }finally{
+            setloading(false)
+        }       
+    }
+    // useEffect(() => {
+    //     feedhandle()
+    // },[])
+    return { loading, feed, feedhandle, posthandle,likehandle,unlikehandle }
 }

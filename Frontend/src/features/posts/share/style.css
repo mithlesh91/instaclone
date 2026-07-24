@@ -68,11 +68,11 @@ main.post .feed-container .icon .right-icone {
 main.post .feed-container .icon .left-icone button,
 main.post .feed-container .icon .right-icone button {
   border: none;
-  overflow: hidden;
+  background: transparent;
 }
-main.post .feed-container .icon .left-icone button .isLiked,
-main.post .feed-container .icon .right-icone button .isLiked {
-  background-color: red;
+main.post .feed-container .icon .left-icone svg.isLiked,
+main.post .feed-container .icon .right-icone svg.isLiked {
+  color: red;
 }
 main.post .feed-container .icon svg {
   width: 24px;

@@ -73,10 +73,11 @@ main.post {
 
         button {
           border: none;
-          overflow: hidden;
-          .isLiked {
-            background-color: red;
-          }
+          background: transparent;
+        }
+
+        svg.isLiked {
+          color: red;
         }
       }
 

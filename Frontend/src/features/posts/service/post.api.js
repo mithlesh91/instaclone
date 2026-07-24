@@ -21,3 +21,17 @@ export async function Createpost(image,caption) {
     console.log("response",response)
     return response.data
 }
+
+export async function likepost(postid) {
+
+    const response = await api.post("/api/likes/" + postid)
+    return response.data
+    
+}
+
+export async function unlikepost(postid) {
+
+    const response = await api.post("/api/unlikes/" + postid)
+    return response.data
+    
+}
