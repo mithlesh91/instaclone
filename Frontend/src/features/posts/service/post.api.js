@@ -37,11 +37,11 @@ export async function unlikepost(postid) {
 }
 
 export async function followUser(username) {
-    const response = await api.post(`/api/follow/${username}`)
+    const response = await api.post("/api/follow/" + username)
     return response.data
 }
 
 export async function unfollowUser(username) {
-    const response = await api.post(`/api/unfollow/${username}`)
+    const response = await api.post("/api/unfollow/" + username)
     return response.data
 }

@@ -4,7 +4,7 @@ import Post from '../Component/Post'
 import Nav from "../Page/Nav"
 import { postuse } from '../Hooks/post.use'
 const Feed = () => {
-    const { loading, feed, feedhandle, likehandle, unlikehandle } = postuse()
+    const { loading, feed, feedhandle, likehandle, unlikehandle,followhandle,unfollowhandle } = postuse()
     useEffect(() => {
         feedhandle()
     }, [])
@@ -19,7 +19,7 @@ const Feed = () => {
             {
                 feed.map(Posts => {
                     console.log("Posts", Posts)
-                    return <Post user={Posts.user} posts={Posts} loading={loading} likehandle={likehandle} unlikehandle={unlikehandle} />
+                    return <Post user={Posts.user} posts={Posts} loading={loading} likehandle={likehandle} unlikehandle={unlikehandle} followhandle={followhandle} unfollowhandle={unfollowhandle} />
                 })
 
 

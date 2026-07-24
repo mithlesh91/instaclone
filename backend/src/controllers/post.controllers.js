@@ -1,5 +1,6 @@
 const postmodel = require('../models/post.models')
 const likemodel = require("../models/likes.modes")
+const followmodel = require("../models/follow.model")
 const Imagekit = require('@imagekit/nodejs')
 const { toFile } = require('@imagekit/nodejs')
 const { Folders } = require('@imagekit/nodejs/resources/index.js')
@@ -17,7 +18,7 @@ async function createpostcontrollers(req, res) {
     const file = await imagekit.files.upload({
         flie: await toFile(Buffer.from(req.file.buffer), 'file'),
         fileName: "test",
-         folder: "/posts"
+        folder: "/posts"
     })
 
     const post = await postmodel.create({
@@ -87,7 +88,13 @@ async function getFeedController(req, res) {
                 post: post._id
             })
 
+            const isFollowing = await followmodel.findOne({
+                follower: user.username,
+                followee: post.user.username
+            });
+
             post.isLiked = Boolean(isLiked)
+            post.isFollow = Boolean(isFollowing)
 
             return post
         }))

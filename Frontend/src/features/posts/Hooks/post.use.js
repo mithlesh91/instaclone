@@ -55,9 +55,9 @@ export function postuse() {
         }     
     }
 
-    async function followhandle() {
+    async function followhandle(username) {
         try{
-            const follow = await followUser()
+            const follow = await followUser(username)
             await feedhandle()
         }
         catch(err){
@@ -65,9 +65,9 @@ export function postuse() {
         }
     }
 
-    async function unfollowhandle() {
+    async function unfollowhandle(username) {
         try{
-            const follow = await unfollowUser()
+            const follow = await unfollowUser(username)
             await feedhandle()
         }
         catch(err){
