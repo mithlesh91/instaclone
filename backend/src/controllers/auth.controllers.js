@@ -95,6 +95,7 @@ async function logingcontrollers(req, res) {
 
     res.status(201).json({
         message: "login successful",
+        token,
         user
     })
 

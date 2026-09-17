@@ -23,7 +23,7 @@ export function useAuth() {
         setloading(true)
         try {
             const data = await login(username, password)
-            localStorage.setItem("login_jwtscwertcode", token);
+            localStorage.setItem("login_jwtscwertcode", data.token);
             setuser(data.user)
         }
         catch (error) {
