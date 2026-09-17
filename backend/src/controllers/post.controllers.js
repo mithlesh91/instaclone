@@ -78,34 +78,41 @@ async function getdetails(req, res) {
 }
 
 async function getFeedController(req, res) {
+    const user = req.user;
 
-    const user = req.user
+    const posts = await postmodel
+        .find({})
+        .populate("user")
+        .lean();
 
-    const posts = await Promise.all((await postmodel.find({}).populate("user").lean())
-        .map(async (post) => {
+    const validPosts = posts.filter(post => post.user !== null);
+
+    const feed = await Promise.all(
+        validPosts.map(async (post) => {
+
             const isLiked = await likemodel.findOne({
                 user: user.username,
                 post: post._id
-            })
+            });
 
             const isFollowing = await followmodel.findOne({
                 follower: user.username,
                 followee: post.user.username
             });
 
-            post.isLiked = Boolean(isLiked)
-            post.isFollow = Boolean(isFollowing)
+            post.isLiked = Boolean(isLiked);
+            post.isFollow = Boolean(isFollowing);
 
-            return post
-        }))
-
-
+            return post;
+        })
+    );
 
     res.status(200).json({
         message: "posts fetched successfully.",
-        posts
-    })
-}
+        posts: feed
+    });
+} 
+
 
 
 module.exports = {
