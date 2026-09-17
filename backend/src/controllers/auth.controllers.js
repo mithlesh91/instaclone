@@ -20,7 +20,9 @@ async function registercontrollers(req, res) {
 
     if (isuserisalreadexists) {
         return res.status(409).json({
-            message: 'this user is already exists' + (isuserisalreadexists.email) === email ? "eamil is already exists" : "user is already exists"
+            message: isuserisalreadexists.email === email
+                ? "Email is already exists"
+                : "Username is already exists"
         })
     }
 
@@ -45,7 +47,7 @@ async function registercontrollers(req, res) {
 
     res.status(201).json({
         message: 'user have registerd',
-       user
+        user
 
     })
 
@@ -113,13 +115,13 @@ async function get_me_controllers(req, res) {
     })
 }
 
-async function logout(req,res) {
+async function logout(req, res) {
     res.clearCookie("login_jwtscwertcode")
 
     res.status(200).json({
-        message:"successfully logout"
+        message: "successfully logout"
     })
-    
+
 }
 
 module.exports = {
