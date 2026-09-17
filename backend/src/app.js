@@ -15,6 +15,8 @@ app.use(morgan("dev"))
 
 app.use(express.json())
 app.use(cookiesparser())
+app.use(express.static('./public'))
+
 app.use(cors({
     credentials:true,
     origin:"http://localhost:5173"
