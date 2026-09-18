@@ -19,7 +19,7 @@ app.use(express.static('./public'))
 
 app.use(cors({
     credentials:true,
-    origin:"http://localhost:5173"
+    origin:"https://instaclone-mu-seven.vercel.app"
 }))
 
 // using api and prefix
