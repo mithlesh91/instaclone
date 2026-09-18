@@ -1,4 +1,4 @@
-import { login, register } from "../service/Auth.api";
+import { login, register,getMe } from "../service/Auth.api";
 import { useContext } from "react";
 import { Authcontext } from '../../Auth.context'
 
@@ -23,7 +23,6 @@ export function useAuth() {
         setloading(true)
         try {
             const data = await login(username, password)
-            localStorage.setItem("login_jwtscwertcode", data.token);
             setuser(data.user)
         }
         catch (error) {
@@ -32,5 +31,18 @@ export function useAuth() {
             setloading(false)
         }
     }
-    return { user, loading, registerhandle, loginhandle }
+
+    const getmehandle = async ()=>{
+       try{
+        const data = await getMe()
+        setuser(data.user)
+       }
+       catch(error){
+        setuser(null)
+        console.error(error)
+       }finally{
+        setloading(false)
+       }
+    }
+    return { user, loading, registerhandle, loginhandle ,getmehandle }
 }

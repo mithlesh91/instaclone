@@ -91,7 +91,7 @@ async function logingcontrollers(req, res) {
         },
         process.env.jwt_scwret
     )
-    res.cookie('login_jwtscwertcode', token)
+    res.cookie('jwt_token', token)
 
     res.status(201).json({
         message: "login successful",
@@ -116,7 +116,7 @@ async function get_me_controllers(req, res) {
 }
 
 async function logout(req, res) {
-    res.clearCookie("login_jwtscwertcode")
+    res.clearCookie("jwt_token")
 
     res.status(200).json({
         message: "successfully logout"

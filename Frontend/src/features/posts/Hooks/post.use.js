@@ -12,7 +12,7 @@ export function postuse() {
         try {
             const data = await feedcontroller()
             console.log("console all feed data", data)
-            setfeed(data.posts)
+            setfeed(data.posts.reverse())
         }
         catch (err) {
             console.error(err)
@@ -80,8 +80,8 @@ export function postuse() {
         await feedhandle()
     }
 
-    // useEffect(() => {
-    //     feedhandle()
-    // },[])
+//    useEffect(() => {
+//         feedhandle()
+//     },[]) 
     return { loading, feed, feedhandle,logouthandle, posthandle,likehandle,unlikehandle,followhandle,unfollowhandle }
 }
